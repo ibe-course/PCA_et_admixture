@@ -6,7 +6,7 @@ This is the pipeline for the handson session on Data Overview, PCA and f-statisi
 
 Before performing any analysis, we would need to assess the coverage of our ancient samples. For this Hands-on we will be working with already genotyped data, for an 'array' of SNPs (Human Origins Array (HO), Axiom). The HO dataset has  around ~600k positions (although this dataset has been prunned`).
 
-A simple and very easy way of assessing how good a sample has worked is to see how many of these positions have we recovered with PLINK program (https://www.cog-genomics.org/plink/) --missing flag. The directory contains the reuslts for this step for a subset of only the ancient samples of our dataset.
+A simple and very easy way of assessing how good a sample has worked is to see how many of these positions have we recovered with PLINK program (https://www.cog-genomics.org/plink/) --missing flag. The directory contains the results for this step for a subset of only the ancient samples of our dataset.
 
 
 
@@ -27,7 +27,7 @@ cd ..
 
 ####  1.b. Post-Mortem damage signal
 
-Ancient samples have a characteresitc Post-Mortem signal caused by base degradation. Most importantly, deamination damage ( C -> T ). In paleogenomics labs, we check this damage due to 2 main reasons. Reason number 1 is tho check if the sample is worth analysing or if it's too degraded. If this is the case we could treat this damage as fasle mutations leading to misleading results. However, this can be helpful as we can assess if a sample is ancient, or if it's modern contamination. We count with several programs and approaches to check the damage pattern of ancient samples, one of the most simple and commonly used is MapDamage (https://ginolhac.github.io/mapDamage/). This is a template of how can we easly can execute it:
+Ancient samples have a characteristic Post-Mortem signal caused by base degradation. Most importantly, deamination damage ( C -> T ). In paleogenomics labs, we check this damage due to 2 main reasons. Reason number 1 is tho check if the sample is worth analyzing or if it's too degraded. If this is the case we could treat this damage as false mutations leading to misleading results. However, this can be helpful as we can assess if a sample is ancient, or if it's modern contamination. We count with several programs and approaches to check the damage pattern of ancient samples, one of the most simple and commonly used is MapDamage (https://ginolhac.github.io/mapDamage/). This is a template of how can we easily can execute it:
 
 
 ```{bash}
@@ -49,7 +49,7 @@ cd ..
 
 #### 2.a Exploratory PCA (PCA_1)
 
-A Principal Component Analysis (PCA) is a tool used in expolratory data analysis which permits dimensionality reduction, in other words, simplyfy a complex matrix of data into easily interpretable components. In a broad manner, it does it by correlating variability of the dataset into Principal Components that explain a certain amount of such variability. This method is severely affected by the type and the nature of the data provided. Let's explore our dataset using a PCA using 'smaprtpca' package from the EIGENSOFT program (https://github.com/chrchang/eigensoft). This program is designed specifically to work with ancient DNA data. The way it works is by providing a parameter file for the program with the desired options of computation. Let's take a look at the parameter file:
+A Principal Component Analysis (PCA) is a tool used in exploratory data analysis which permits dimensionality reduction, in other words, simplify a complex matrix of data into easily interpretable components. In a broad manner, it does it by correlating variability of the dataset into Principal Components that explain a certain amount of such variability. This method is severely affected by the type and the nature of the data provided. Let's explore our dataset using a PCA using 'smaprtpca' package from the EIGENSOFT program (https://github.com/chrchang/eigensoft). This program is designed specifically to work with ancient DNA data. The way it works is by providing a parameter file for the program with the desired options of computation. Let's take a look at the parameter file:
 
 ```
 
@@ -68,7 +68,7 @@ smartpca -p ./pca_parameters
 
 ```
 
-What can we conclude from this PCA? How helpful is it for explorig our data?
+What can we conclude from this PCA? How helpful is it for exploring our data?
 
 
 ```
@@ -77,7 +77,7 @@ cd ..
 
 ####  2.b West-Eurasian PCA (PCA_2)
 
-We are going to put a little bit more context in our PCA now. Smartpca allows to compute the PCs with only a subset of samples and inefer a projected position for the rest. By using a subset of West-Eurasian populations we could create a very recognisable structure in the PCA. Again we will run a PCA with an extra parameter in our parameter file to acheve this.
+We are going to put a little bit more context in our PCA now. Smartpca allows to compute the PCs with only a subset of samples and infer a projected position for the rest. By using a subset of West-Eurasian populations we could create a very recognizable structure in the PCA. Again we will run a PCA with an extra parameter in our parameter file to achieve this.
 
 ```
 
@@ -98,7 +98,7 @@ What can we conclude from this PCA? Does the structure help us to infer the ance
 
 ### 3. f-Statisitcs
 
-In a broad way, f-statisitcis are a set of statisitcal tests which are used in population genomics to measure the genetic similarity/dissimilarity in a population. There are several types of tests, most importantly F3 and F4, which are simple statistics that test for admixture. F3 requires just 3 populations, and is most useful for recent admixture at approximately equal proportions. F4 is suitable to more ancient admixture, but more sensitive. For this Hands-on we will apply F4 by means of qpAdm program of AdmixTools (https://github.com/DReichLab/AdmixTools). In the qpAdm scheme, you choose m “right” populations (or outgroups) and n “left” populations (target and references for qpAdm). Taking the first population on each side as the point of comparison, you build a (m−1)×(n−1) matrix of f4 statistics. With qpAdm we want to measure the how much proportion of admixture is present in the 'target' populations coming from the 'reference' populations.
+In a broad way, f-statistics are a set of statistical tests which are used in population genomics to measure the genetic similarity/dissimilarity in a population. There are several types of tests, most importantly F3 and F4, which are simple statistics that test for admixture. F3 requires just 3 populations, and is most useful for recent admixture at approximately equal proportions. F4 is suitable to more ancient admixture, but more sensitive. For this Hands-on we will apply F4 by means of qpAdm program of AdmixTools (https://github.com/DReichLab/AdmixTools). In the qpAdm scheme, you choose m “right” populations (or outgroups) and n “left” populations (target and references for qpAdm). Taking the first population on each side as the point of comparison, you build a (m−1)×(n−1) matrix of f4 statistics. With qpAdm we want to measure the how much proportion of admixture is present in the 'target' populations coming from the 'reference' populations.
 
 We are going to measure the proportions of the main three ancestral components of West-Eurasian ancestry (WHG, Early farmers and Step pastoralists) from 3 different present-day populations.
 
