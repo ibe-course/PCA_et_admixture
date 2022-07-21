@@ -1,5 +1,3 @@
-## Welcome
-
 This is the pipeline for the handson session on Data Overview, PCA and f-statisitics for the IBE phD course
 
 ### 1. DATA OVERVIEW
@@ -8,7 +6,7 @@ This is the pipeline for the handson session on Data Overview, PCA and f-statisi
 
 Before performing any analysis, we would need to assess the coverage of our ancient samples. For this Hands-on we will be working with already genotyped data, for an 'array' of SNPs (Human Origins Array (HO), Axiom). The HO dataset has  around ~600k positions (although this dataset has been prunned`).
 
-A simple and very easy way of assessing how good a sample has worked is to see how many of these positions have we recovered with plink --missing flag. The directory contains the reuslts for this step for a subset of only the ancient samples of our dataset.
+A simple and very easy way of assessing how good a sample has worked is to see how many of these positions have we recovered with PLINK program (https://www.cog-genomics.org/plink/) --missing flag. The directory contains the reuslts for this step for a subset of only the ancient samples of our dataset.
 
 
 
@@ -23,9 +21,7 @@ How is the SNP missingness of present-day and ancient samples? (Tip: use 'grep' 
 
 
 ```{bash}
-
 cd ..
-
 ```
 
 
@@ -45,9 +41,7 @@ We have a selection of 5 outputs from MapDamage in the directory. Which samples 
 
 
 ```
-
 cd ..
-
 ```
 
 
@@ -78,9 +72,7 @@ What can we conclude from this PCA? How helpful is it for explorig our data?
 
 
 ```
-
 cd ..
-
 ```
 
 ####  2.b West-Eurasian PCA (PCA_2)
